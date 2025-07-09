@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+
+    <!-- =================================================================== -->
+    <!--     CHANGE THE URL IN THE THREE PLACES BELOW TO YOUR DESTINATION    -->
+    <!-- =================================================================== -->
+
+    <!-- METHOD 1: JavaScript Redirect (Primary) -->
+    <!-- This is the fastest and most modern method. -->
+    <script type="text/javascript">
+        window.location.replace("YOUR_URL_HERE");
+    </script>
+
+    <!-- METHOD 2: Meta Refresh Redirect (Fallback) -->
+    <!-- This runs if JavaScript is disabled. "1" is a 1-second delay. -->
+    <meta http-equiv="refresh" content="1;url=YOUR_URL_HERE" />
+
+    <!-- Simple styling for the fallback message -->
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            padding: 2em;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Redirecting you...</h1>
+        <p>Please wait while we send you to your destination.</p>
+        
+        <!-- METHOD 3: Clickable Link (Ultimate Fallback) -->
+        <p>
+            If you are not automatically redirected, 
+            <a href="YOUR_URL_HERE">please click here to continue</a>.
+        </p>
+    </div>
+
+</body>
+</html>
