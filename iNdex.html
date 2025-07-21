@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnament - Download App</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- General and Reset Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background-color: #0D0D0D;
+            --text-color: #EAEAEA;
+            --accent-gold-start: #FFD700;
+            --accent-gold-end: #FFAA00;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* --- Subtle Background Texture --- */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://www.transparenttextures.com/patterns/dark-matter.png');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        /* --- Main Layout Container --- */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            z-index: 1;
+        }
+
+        /* --- Minimalist Header --- */
+        header {
+            width: 100%;
+            padding: 1rem 0;
+            text-align: left;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            color: #FFFFFF;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            max-width: 500px;
+            margin-bottom: 3.5rem;
+        }
+
+        /* --- Modern Gradient Button --- */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(45deg, var(--accent-gold-start), var(--accent-gold-end));
+            color: #000000;
+            border: none;
+            border-radius: 12px;
+            padding: 1.25rem 2.5rem;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2rem;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 193, 7, 0.2);
+        }
+
+        .download-btn .fa-android {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+
+        .btn-text {
+            text-align: left;
+        }
+
+        .btn-text span {
+            display: block;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .btn-text .download-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .btn-text .app-text {
+            font-size: 1.25rem;
+        }
+
+        /* --- Alternative Login Link --- */
+        .login-link {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .login-link:hover {
+            opacity: 1;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            header {
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .download-btn {
+                padding: 1rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">Turnament</div>
+        </header>
+
+        <main class="hero">
+            <h1>Where Champions Are Forged</h1>
+            <p>The ultimate platform for competitive gaming tournaments and rewards.</p>
+
+            <!-- Download Button -->
+            <a href="YOUR_APP_LINK.apk" class="download-btn" download>
+                <i class="fab fa-android"></i>
+                <div class="btn-text">
+                    <span class="download-text">Available for</span>
+                    <span class="app-text">Android</span>
+                </div>
+            </a>
+
+            <!-- Login Link -->
+            <div>
+                <a href="#" class="login-link">
+                    Login on Website
+                </a>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
