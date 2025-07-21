@@ -3,227 +3,298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournament App</title>
+    <title>Turnament - Download App</title>
+
+    <!-- Google Fonts: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to right, #8e2de2, #4a00e0);
-            color: #fff;
+        /* --- General and Reset Styles --- */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            background-color: #0f101a; /* Fallback color */
+            overflow: hidden; /* Prevents scrollbars from the pseudo-element */
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* --- Background Image & Blur Effect --- */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/7915429/pexels-photo-7915429.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(5px); /* Blurry background */
+            z-index: -2;
+        }
+
+        /* --- Dark Overlay --- */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 16, 26, 0.7); /* Semi-transparent dark overlay */
+            z-index: -1;
+        }
+
+        /* --- Main Layout Container --- */
         .container {
-            width: 90%;
-            margin: auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 0 2rem;
             max-width: 1200px;
+            margin: 0 auto;
         }
 
+        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #0f101a;
+            padding: 1rem 2rem;
+            width: 100%;
+        }
+        
+        .header-left, .header-right {
+            flex: 1;
+        }
+
+        .header-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* --- Logo --- */
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #ffc107; /* Yellow border */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            border-bottom: 2px solid #ffc107; /* Yellow border */
+            padding-bottom: 2px;
+            letter-spacing: 1px;
+        }
+
+
+        /* --- Hero Section --- */
+        .hero {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             padding: 2rem 0;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 1rem;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 4rem 0;
-        }
-
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            max-width: 800px;
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
         }
 
-        .app-logo {
-            width: 150px; /* Adjust size as needed */
+        /* --- Call-to-Action Buttons --- */
+        .download-btn {
+            display: flex;
+            align-items: center;
+            background-color: #1e2130;
+            border: 2px solid #ffffff;
+            border-radius: 15px;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            color: #ffffff;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             margin-bottom: 1.5rem;
         }
 
-        .cta-button {
-            background-color: #fff;
-            color: #4a00e0;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none; /* In case you wrap it in an <a> tag */
-            display: inline-block;
+        .download-btn:hover {
+            background-color: #2c3042;
+            transform: scale(1.05);
         }
 
-        .cta-button:hover {
-            background-color: #eee;
+        .download-btn .fab.fa-android {
+            font-size: 3.5rem;
+            margin-right: 1.5rem;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            padding: 4rem 0;
-        }
-
-        .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .feature-card i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .hamburger {
-            display: none;
+        .btn-text {
+            display: flex;
             flex-direction: column;
-            cursor: pointer;
+            align-items: flex-start;
         }
 
-        .hamburger .line {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 3px 0;
+        .btn-text span:first-child {
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
+        .btn-text span:last-child {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .login-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .login-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            nav {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                background: rgba(0, 0, 0, 0.5);
-                z-index: 10;
+            .container {
+                padding: 0 1rem;
             }
 
-            nav.active {
-                display: flex;
+            header {
+                padding: 1rem;
             }
 
-            nav a {
-                margin: 1rem 0;
-                text-align: center;
+            .logo-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
 
-            .hamburger {
-                display: flex;
+            .logo-text {
+                font-size: 1rem;
             }
-        }
 
-        @media (min-width: 769px) {
             .hero h1 {
-                font-size: 3.5rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
-
-            .cta-button {
-                font-size: 1.2rem;
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
             }
-
-            .features {
-                grid-template-columns: repeat(3, 1fr);
+            .download-btn {
+                padding: 0.8rem 1.5rem;
+            }
+            .download-btn .fab.fa-android {
+                font-size: 2.8rem;
+                margin-right: 1rem;
+            }
+            .btn-text span:last-child {
+                font-size: 1.2rem;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="overlay"></div>
+
     <div class="container">
+        <!-- Header -->
         <header>
-            <div class="logo">TournamentApp</div>
-            <div class="hamburger">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <div class="header-left">
+                <div class="lang-selector">
+                    <span>English</span>
+                    <i class="fas fa-chevron-down fa-xs"></i>
+                </div>
             </div>
-            <nav>
-                <a href="#">Features</a>
-                <a href="#">Pricing</a>
-                <a href="#">Contact</a>
-            </nav>
+            
+            <div class="logo">
+                <div class="logo-icon">T</div>
+                <span class="logo-text">TURNAMENT</span>
+            </div>
+
+            <div class="header-right">
+                <!-- Kept for layout balance -->
+            </div>
         </header>
 
-        <main>
-            <section class="hero">
-                <h1>Organize & Compete in Tournaments</h1>
-                <p>The ultimate platform for creating and managing gaming tournaments.</p>
-                <img src="your-app-logo.png" alt="App Logo" class="app-logo">
-                <br>
-                <a href="your-apk-download-link.apk" class="cta-button">Download App</a>
-            </section>
+        <!-- Hero Section -->
+        <main class="hero">
+            <h1>Play Esports tournaments & win rewards</h1>
+            <p>Your first step to becoming a gamer!</p>
 
-            <section class="features">
-                <div class="feature-card">
-                    <i class="fas fa-sitemap"></i>
-                    <h3>Create Brackets</h3>
-                    <p>Easily generate single and double elimination brackets for your tournaments.</p>
+            <!-- Download Button -->
+            <a href="YOUR_APP_LINK.apk" class="download-btn" download>
+                <i class="fab fa-android"></i>
+                <div class="btn-text">
+                    <span>Download</span>
+                    <span>Android App</span>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Manage Participants</h3>
-                    <p>Invite and manage all the participants of your tournament in one place.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-trophy"></i>
-                    <h3>Track Results</h3>
-                    <p>Update match scores and keep track of the tournament progress in real-time.</p>
-                </div>
-            </section>
+            </a>
+
+            <!-- Login Link -->
+            <a href="#" class="login-link">
+                <i class="fas fa-globe"></i>
+                <span>Login on Website</span>
+            </a>
         </main>
     </div>
 
-    <footer>
-        <p>© 2025 TournamentApp. All rights reserved.</p>
-    </footer>
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const nav = document.querySelector('nav');
-
-        hamburger.addEventListener('click', () => {
-            nav.classList.toggle('active');
-        });
-    </script>
 </body>
 </html>
