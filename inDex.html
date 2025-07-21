@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnament - Join The Game</title>
+
+    <!-- Google Fonts: Bai Jamjuree -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #FF00E6; /* Electric Magenta */
+            --background-color: #0A0A10;
+            --text-color: #FFFFFF;
+        }
+
+        /* --- General and Reset Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* --- Fullscreen Video Background --- */
+        #bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: 0;
+        }
+
+        /* --- Dark Overlay --- */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(10, 10, 16, 0.75);
+            z-index: 1;
+        }
+
+        /* --- Main Layout Container --- */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        /* --- Logo --- */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 2.5rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* --- Hero Section --- */
+        .hero h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(255, 0, 230, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-bottom: 3rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Animated Glitch Button --- */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-color);
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+            transition: color 0.4s ease-in-out;
+            box-shadow: 0 0 10px rgba(255, 0, 230, 0.5);
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            z-index: -1;
+            transition: left 0.4s ease-in-out;
+        }
+
+        .download-btn:hover::before {
+            left: 0;
+        }
+        
+        .download-btn:hover {
+            color: var(--background-color);
+            box-shadow: 0 0 25px rgba(255, 0, 230, 0.8);
+        }
+
+        .download-btn .fa-android {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+
+        /* --- Alternative Login Link --- */
+        .login-link {
+            display: block;
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: var(--text-color);
+            text-decoration: none;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .login-link:hover {
+            opacity: 1;
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .download-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <video playsinline autoplay muted loop id="bg-video">
+        <source src="https://www.pexels.com/download/video/854099/" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">Turnament</div>
+        </header>
+
+        <main class="hero">
+            <h1>The Next Level Of Gaming</h1>
+            <p>Download the app to compete in exclusive tournaments and win real rewards.</p>
+
+            <a href="YOUR_APP_LINK.apk" class="download-btn" download>
+                <i class="fab fa-android"></i>
+                <span>Download App</span>
+            </a>
+            
+            <a href="#" class="login-link">
+                Login on Website
+            </a>
+        </main>
+    </div>
+
+</body>
+</html>
