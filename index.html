@@ -13,13 +13,11 @@
             padding: 0;
         }
 
-
         .container {
             width: 90%;
             margin: auto;
             max-width: 1200px;
         }
-
 
         header {
             display: flex;
@@ -28,12 +26,10 @@
             padding: 2rem 0;
         }
 
-
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
         }
-
 
         nav a {
             color: #fff;
@@ -42,24 +38,25 @@
             font-size: 1rem;
         }
 
-
         .hero {
             text-align: center;
             padding: 4rem 0;
         }
-
 
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
-
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 2rem;
         }
 
+        .app-logo {
+            width: 150px; /* Adjust size as needed */
+            margin-bottom: 1.5rem;
+        }
 
         .cta-button {
             background-color: #fff;
@@ -70,13 +67,13 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none; /* In case you wrap it in an <a> tag */
+            display: inline-block;
         }
-
 
         .cta-button:hover {
             background-color: #eee;
         }
-
 
         .features {
             display: grid;
@@ -84,7 +81,6 @@
             gap: 2rem;
             padding: 4rem 0;
         }
-
 
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
@@ -95,18 +91,15 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-
         .feature-card i {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-
 
         footer {
             text-align: center;
@@ -114,13 +107,11 @@
             background: rgba(0, 0, 0, 0.2);
         }
 
-
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
         }
-
 
         .hamburger .line {
             width: 25px;
@@ -128,7 +119,6 @@
             background-color: #fff;
             margin: 3px 0;
         }
-
 
         @media (max-width: 768px) {
             nav {
@@ -139,48 +129,40 @@
                 top: 80px;
                 left: 0;
                 background: rgba(0, 0, 0, 0.5);
+                z-index: 10;
             }
-
 
             nav.active {
                 display: flex;
             }
-
 
             nav a {
                 margin: 1rem 0;
                 text-align: center;
             }
 
-
             .hamburger {
                 display: flex;
             }
         }
-
 
         @media (min-width: 769px) {
             .hero h1 {
                 font-size: 3.5rem;
             }
 
-
             .hero p {
                 font-size: 1.2rem;
             }
-
 
             .cta-button {
                 font-size: 1.2rem;
             }
 
-
             .features {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-
-
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -203,14 +185,14 @@
             </nav>
         </header>
 
-
         <main>
             <section class="hero">
                 <h1>Organize & Compete in Tournaments</h1>
                 <p>The ultimate platform for creating and managing gaming tournaments.</p>
-                <button class="cta-button">Get Started for Free</button>
+                <img src="your-app-logo.png" alt="App Logo" class="app-logo">
+                <br>
+                <a href="your-apk-download-link.apk" class="cta-button">Download App</a>
             </section>
-
 
             <section class="features">
                 <div class="feature-card">
@@ -232,14 +214,12 @@
         </main>
     </div>
 
-
     <footer>
         <p>© 2025 TournamentApp. All rights reserved.</p>
     </footer>
     <script>
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
-
 
         hamburger.addEventListener('click', () => {
             nav.classList.toggle('active');
