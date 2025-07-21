@@ -13,11 +13,13 @@
             padding: 0;
         }
 
+
         .container {
             width: 90%;
             margin: auto;
             max-width: 1200px;
         }
+
 
         header {
             display: flex;
@@ -26,10 +28,12 @@
             padding: 2rem 0;
         }
 
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
         }
+
 
         nav a {
             color: #fff;
@@ -38,20 +42,24 @@
             font-size: 1rem;
         }
 
+
         .hero {
             text-align: center;
             padding: 4rem 0;
         }
 
+
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
+
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
         }
+
 
         .cta-button {
             background-color: #fff;
@@ -59,21 +67,24 @@
             padding: 1rem 2rem;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
 
         .cta-button:hover {
             background-color: #eee;
         }
 
+
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             padding: 4rem 0;
         }
+
 
         .feature-card {
             background: rgba(255, 255, 255, 0.1);
@@ -84,21 +95,92 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+
         .feature-card i {
             font-size: 3rem;
             margin-bottom: 1rem;
         }
+
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
 
+
         footer {
             text-align: center;
             padding: 2rem 0;
             background: rgba(0, 0, 0, 0.2);
         }
+
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+
+        .hamburger .line {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px 0;
+        }
+
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+
+            nav.active {
+                display: flex;
+            }
+
+
+            nav a {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+
+        @media (min-width: 769px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+
+            .cta-button {
+                font-size: 1.2rem;
+            }
+
+
+            .features {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +191,11 @@
     <div class="container">
         <header>
             <div class="logo">TournamentApp</div>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
             <nav>
                 <a href="#">Features</a>
                 <a href="#">Pricing</a>
@@ -116,12 +203,14 @@
             </nav>
         </header>
 
+
         <main>
             <section class="hero">
                 <h1>Organize & Compete in Tournaments</h1>
                 <p>The ultimate platform for creating and managing gaming tournaments.</p>
                 <button class="cta-button">Get Started for Free</button>
             </section>
+
 
             <section class="features">
                 <div class="feature-card">
@@ -143,8 +232,18 @@
         </main>
     </div>
 
+
     <footer>
         <p>© 2025 TournamentApp. All rights reserved.</p>
     </footer>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
